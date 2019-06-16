@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="傅里叶,">
+  <meta name="keywords" content="优化,拉格朗日,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前段时间需要分析设备的振动数据，用到傅里叶分析相关知识。在学校的时候略有涉及，但不深入。借此机会重新学习。学习材料包括傅立叶分析导论，算法导论、数字信号处理-原理、算法与应用，以及MHL的傅里叶分析（PDF版本）。 主要分为以下内容：  前言背景 基础知识 傅里叶级数 傅里叶变换 离散傅里叶级数与离散时间傅里叶变换 离散傅里叶变换及其快速算法 快速傅里叶变换编程(Python) 示例分析">
-<meta name="keywords" content="傅里叶">
+<meta name="description" content="1. 等式约束问题​    对以下约束问题：  \min_{x\in R^d} f(x) \\ s.t. g(x) = 0​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立： 命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面； 命题二：在最优点$x^$处，$f(x)$在该点的梯度$\nabla f(x^)$">
+<meta name="keywords" content="优化,拉格朗日">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0.傅里叶分析-背景">
-<meta property="og:url" content="https://mulinsenpan.github.io/2019/06/16/0-傅里叶分析-背景/index.html">
+<meta property="og:title" content="1.拉格朗日乘子法">
+<meta property="og:url" content="https://mulinsenpan.github.io/2019/06/16/1-拉格朗日乘子法/index.html">
 <meta property="og:site_name" content="ml&amp;phm">
-<meta property="og:description" content="前段时间需要分析设备的振动数据，用到傅里叶分析相关知识。在学校的时候略有涉及，但不深入。借此机会重新学习。学习材料包括傅立叶分析导论，算法导论、数字信号处理-原理、算法与应用，以及MHL的傅里叶分析（PDF版本）。 主要分为以下内容：  前言背景 基础知识 傅里叶级数 傅里叶变换 离散傅里叶级数与离散时间傅里叶变换 离散傅里叶变换及其快速算法 快速傅里叶变换编程(Python) 示例分析">
+<meta property="og:description" content="1. 等式约束问题​    对以下约束问题：  \min_{x\in R^d} f(x) \\ s.t. g(x) = 0​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立： 命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面； 命题二：在最优点$x^$处，$f(x)$在该点的梯度$\nabla f(x^)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T13:10:45.178Z">
+<meta property="og:updated_time" content="2019-06-16T14:27:36.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0.傅里叶分析-背景">
-<meta name="twitter:description" content="前段时间需要分析设备的振动数据，用到傅里叶分析相关知识。在学校的时候略有涉及，但不深入。借此机会重新学习。学习材料包括傅立叶分析导论，算法导论、数字信号处理-原理、算法与应用，以及MHL的傅里叶分析（PDF版本）。 主要分为以下内容：  前言背景 基础知识 傅里叶级数 傅里叶变换 离散傅里叶级数与离散时间傅里叶变换 离散傅里叶变换及其快速算法 快速傅里叶变换编程(Python) 示例分析">
+<meta name="twitter:title" content="1.拉格朗日乘子法">
+<meta name="twitter:description" content="1. 等式约束问题​    对以下约束问题：  \min_{x\in R^d} f(x) \\ s.t. g(x) = 0​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立： 命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面； 命题二：在最优点$x^$处，$f(x)$在该点的梯度$\nabla f(x^)$">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://mulinsenpan.github.io/2019/06/16/0-傅里叶分析-背景/">
+  <link rel="canonical" href="https://mulinsenpan.github.io/2019/06/16/1-拉格朗日乘子法/">
 
 
 
 
 
-  <title>0.傅里叶分析-背景 | ml&phm</title>
+  <title>1.拉格朗日乘子法 | ml&phm</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mulinsenpan.github.io/2019/06/16/0-傅里叶分析-背景/">
+    <link itemprop="mainEntityOfPage" href="https://mulinsenpan.github.io/2019/06/16/1-拉格朗日乘子法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mulinsenpan">
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">0.傅里叶分析-背景</h1>
+          <h1 class="post-title" itemprop="name headline">1.拉格朗日乘子法</h1>
         
 
         <div class="post-meta">
@@ -314,7 +314,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T21:08:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T22:21:06+08:00">
                 2019-06-16
               </time>
             
@@ -374,18 +374,55 @@
       
 
       
-        <p>　　前段时间需要分析设备的振动数据，用到傅里叶分析相关知识。在学校的时候略有涉及，但不深入。借此机会重新学习。学习材料包括傅立叶分析导论，算法导论、数字信号处理-原理、算法与应用，以及MHL的傅里叶分析（PDF版本）。</p>
-<p>主要分为以下内容：</p>
-<ol>
-<li>前言背景</li>
-<li>基础知识</li>
-<li>傅里叶级数</li>
-<li>傅里叶变换</li>
-<li>离散傅里叶级数与离散时间傅里叶变换</li>
-<li>离散傅里叶变换及其快速算法</li>
-<li>快速傅里叶变换编程(Python)</li>
-<li>示例分析</li>
-</ol>
+        <p>　</p>
+<h4 id="1-等式约束问题"><a href="#1-等式约束问题" class="headerlink" title="1. 等式约束问题"></a>1. 等式约束问题</h4><p>​    对以下约束问题：</p>
+<script type="math/tex; mode=display">
+\min_{x\in R^d} f(x) \\
+s.t. g(x) = 0</script><p>​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立：</p>
+<p>命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面；</p>
+<p>命题二：在最优点$x^<em>$处，$f(x)$在该点的梯度$\nabla f(x^</em>)$ 正交与约束曲面；</p>
+<p>​    由以上两个命题可得，最优点出两个梯度共线，即：$\nabla f(x^<em>) + \lambda\nabla g(x^</em>)=0  $。根据此式可以定义拉格朗日函数：</p>
+<script type="math/tex; mode=display">
+L(x, \lambda)=f(x) + \lambda*g(x)</script><p>对$x,\lambda$求偏导，可得：</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial x}=\nabla f(x) + \lambda\nabla g(x)\\
+\frac{\partial L}{\partial \lambda} = g(x)</script><p>令$\frac{\partial L}{\partial x}=0, \frac{\partial L}{\partial \lambda}$=0，可得到$(1),(2)$取最值的点。</p>
+<h4 id="2-不等式约束问题"><a href="#2-不等式约束问题" class="headerlink" title="2. 不等式约束问题"></a>2. 不等式约束问题</h4><p>​    对问题</p>
+<script type="math/tex; mode=display">
+\min_{x\in R^d} f(x) \\
+s.t. g(x) \le 0</script><p>​    最优点\驻点的情况分为以下两种“</p>
+<p>​    (1) 驻点位于$g(x)&lt;0$的区域内，该情况下约束不起作用，$f(x)$的驻点\最优点满足$\nabla f(x)=0$，可得在(2)中$\lambda = 0$;</p>
+<p>​    (2)驻点位于$g(x)=0$，即位于边界上，$g(x)$=0</p>
+<p>​    根据以上两点，可以得到最优解满足的条件(KKT条件):</p>
+<p>​    (1) $g(x) \le0$</p>
+<p>​    (2)$\lambda * g(x) = 0$</p>
+<p>​    (3)$\lambda \ge 0$</p>
+<h4 id="3-扩展至多约束"><a href="#3-扩展至多约束" class="headerlink" title="3. 扩展至多约束"></a>3. 扩展至多约束</h4><p>​    问题：</p>
+<script type="math/tex; mode=display">
+\min_{x\in R^d} f(x) \\
+s.t. h_i(x) = 0 , i = 1...m\\
+g_j(x) \le 0, j = 1...n</script><p>​    引入拉格朗日乘子 $\lambda=[\lambda_1…\lambda_m]$和$\mu=[\mu_1…\mu_n]$，拉格朗日函数为：</p>
+<script type="math/tex; mode=display">
+L(x,\lambda,\mu)=f(x) + \sum_{i=1}^{m}\lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_i*g_i(x)</script><p>​    KKT条件为:</p>
+<script type="math/tex; mode=display">
+g_i(x) \le 0 \\
+\mu_j \ge 0 \\
+u_j * g_j(x) = 0</script><p>​    </p>
+<h4 id="4-对偶问题"><a href="#4-对偶问题" class="headerlink" title="4. 对偶问题"></a>4. 对偶问题</h4><p>优化问题可以从两个角度观察，主问题和对偶问题。对于原优化问题，其拉格朗日对偶问题$\Gamma :R^m * R^n  \rightarrow R$定义为：</p>
+<script type="math/tex; mode=display">
+\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \\
+= \inf_{x in D} (f(x) + \sum_{i=1}^{m} \lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_j * g_j(x) )</script><p>​    对可行域中的点$x$, $ \sum_{i=1}^{m} \lambda_i<em>h_i(x) + \sum_{j=1}^{n}\mu_j </em> g_j(x) \le0$，故：</p>
+<script type="math/tex; mode=display">
+\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \le L(x, \lambda, \mu) \le f(x)</script><p>​    因此如果原问题的最优值$p^*$，对任意$\mu &gt;0, \lambda$满足以下条件:</p>
+<script type="math/tex; mode=display">
+\Gamma(\lambda, \mu) \le p^*</script><p>​    对偶问题给出了原问题最优值的下界，且该下界的值取决于$\lambda,\mu$的取值。此时考虑另外一个问题：最好的下界是什么？该问题表述为以下形式:</p>
+<script type="math/tex; mode=display">
+\max_{\lambda, \mu} \Gamma(\lambda, \mu) \\
+s.t. \mu \ge 0</script><p>​    $\lambda, \mu$称之为对偶变量，且该问题为凸优化问题。此问题的最优解$d^<em> \le p^</em>$，小于等于原问题的最优解。当等号成立时，强对偶成立，对偶问题的上界等于原问题的下界。一般问题强对偶条件不成立，但是当原问题为凸优化问题时，该条件成立。此时将拉格朗日函数分别对原变量和对偶变量求导，令其导数为0，即可得到原变量和对偶变量的数值关系，对偶问题得到解决，原问题亦解决。</p>
+<h4 id="5-附录"><a href="#5-附录" class="headerlink" title="5. 附录"></a>5. 附录</h4><h5 id="5-1-命题一"><a href="#5-1-命题一" class="headerlink" title="5.1 命题一"></a>5.1 命题一</h5><p>​    曲面$g(x)=0$表示$g(x)$的等高线，在点$(x, y)$切线的斜率为$\frac{dy}{dx}$，法线的斜率：</p>
+<script type="math/tex; mode=display">
+-\frac{1}{\frac{dy}{dx}}=-\frac{1}{-\frac{fx}{fy}}=\frac{fy}{fx}</script><p>​    梯度$\nabla  g(x)=[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial x}]^T$，其方向为$\frac{fy}{fx}$。故梯度和曲面正交。</p>
+<h5 id="5-2-命题二"><a href="#5-2-命题二" class="headerlink" title="5.2 命题二"></a>5.2 命题二</h5><p>​    反证：若$\nabla f(x)$与约束曲面不正交，则继续验证梯度方向在约束曲面上移动，可使$f(x)$变小。</p>
 
       
     </div>
@@ -406,7 +443,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://mulinsenpan.github.io/2019/06/16/0-傅里叶分析-背景/" title="0.傅里叶分析-背景">https://mulinsenpan.github.io/2019/06/16/0-傅里叶分析-背景/</a>
+    <a href="https://mulinsenpan.github.io/2019/06/16/1-拉格朗日乘子法/" title="1.拉格朗日乘子法">https://mulinsenpan.github.io/2019/06/16/1-拉格朗日乘子法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -421,7 +458,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/傅里叶/" rel="tag"># 傅里叶</a>
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+            <a href="/tags/拉格朗日/" rel="tag"># 拉格朗日</a>
           
         </div>
       
@@ -434,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/16/1-傅里叶分析-基础知识/" rel="next" title="1.傅里叶分析-基础知识">
-                <i class="fa fa-chevron-left"></i> 1.傅里叶分析-基础知识
+              <a href="/2019/06/16/0-傅里叶分析-背景/" rel="next" title="0.傅里叶分析-背景">
+                <i class="fa fa-chevron-left"></i> 0.傅里叶分析-背景
               </a>
             
           </div>
@@ -444,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/16/1-拉格朗日乘子法/" rel="prev" title="1.拉格朗日乘子法">
-                1.拉格朗日乘子法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/16/拉格朗日乘子法/" rel="prev" title="拉格朗日乘子法">
+                拉格朗日乘子法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +619,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-等式约束问题"><span class="nav-number">1.</span> <span class="nav-text">1. 等式约束问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-不等式约束问题"><span class="nav-number">2.</span> <span class="nav-text">2. 不等式约束问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-扩展至多约束"><span class="nav-number">3.</span> <span class="nav-text">3. 扩展至多约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-对偶问题"><span class="nav-number">4.</span> <span class="nav-text">4. 对偶问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-附录"><span class="nav-number">5.</span> <span class="nav-text">5. 附录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-命题一"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 命题一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-命题二"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 命题二</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

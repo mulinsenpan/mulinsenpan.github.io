@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>支持向量机</title>
+      <link href="/2019/06/16/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/"/>
+      <url>/2019/06/16/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 支持向量机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 支持向量机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>拉格朗日乘子法</title>
+      <link href="/2019/06/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/"/>
+      <url>/2019/06/16/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>　</p><h4 id="1-等式约束问题"><a href="#1-等式约束问题" class="headerlink" title="1. 等式约束问题"></a>1. 等式约束问题</h4><p>​    对以下约束问题：</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. g(x) = 0</script><p>​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立：</p><p>命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面；</p><p>命题二：在最优点$x^<em>$，$f(x)$在该点的梯度$\nabla f(x^</em>)$ 正交与约束曲面；</p><p>​    由以上两个命题可得，最优点出两个梯度共线，即：$\nabla f(x^<em>) + \lambda\nabla g(x^</em>)=0  $。根据此式可以定义拉格朗日函数：</p><script type="math/tex; mode=display">L(x, \lambda)=f(x) + \lambda*g(x)</script><p>对$x,\lambda$求偏导，可得：</p><script type="math/tex; mode=display">\frac{\partial L}{\partial x}=\nabla f(x) + \lambda\nabla g(x)\\\frac{\partial L}{\partial \lambda} = g(x)</script><p>令$\frac{\partial L}{\partial x}=0, \frac{\partial L}{\partial \lambda}$=0，可得到$(1),(2)$取最值的点。</p><h4 id="2-不等式约束问题"><a href="#2-不等式约束问题" class="headerlink" title="2. 不等式约束问题"></a>2. 不等式约束问题</h4><p>​    对问题</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. g(x) \le 0</script><p>​    最优点\驻点的情况分为以下两种“</p><p>​    (1) 驻点位于$g(x)&lt;0$的区域内，该情况下约束不起作用，$f(x)$的驻点\最优点满足$\nabla f(x)=0$，可得在(2)中$\lambda = 0$;</p><p>​    (2)驻点位于$g(x)=0$，即位于边界上，$g(x)$=0</p><p>​    根据以上两点，可以得到最优解满足的条件(KKT条件):</p><p>​    (1) $g(x) \le0$</p><p>​    (2)$\lambda * g(x) = 0$</p><p>​    (3)$\lambda \ge 0$</p><h4 id="3-扩展至多约束"><a href="#3-扩展至多约束" class="headerlink" title="3. 扩展至多约束"></a>3. 扩展至多约束</h4><p>​    问题：</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. h_i(x) = 0 , i = 1...m\\g_j(x) \le 0, j = 1...n</script><p>​    引入拉格朗日乘子 $\lambda=[\lambda_1…\lambda_m]$和$\mu=[\mu_1…\mu_n]$，拉格朗日函数为：</p><script type="math/tex; mode=display"><Empty \space Math \space Block></script><script type="math/tex; mode=display">L(x,\lambda,\mu)=f(x) + \sum_{i=1}^{m}\lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_i*g_i(x)</script><p>​    KKT条件为:</p><script type="math/tex; mode=display">g_i(x) \le 0 \\\mu_j \ge 0 \\u_j * g_j(x) = 0</script><p>​    </p><h4 id="4-对偶问题"><a href="#4-对偶问题" class="headerlink" title="4. 对偶问题"></a>4. 对偶问题</h4><p>优化问题可以从两个角度观察，主问题和对偶问题。对于原优化问题，其拉格朗日对偶问题$\Gamma :R^m * R^n  \rightarrow R$定义为：</p><script type="math/tex; mode=display">\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \\= \inf_{x in D} (f(x) + \sum_{i=1}^{m} \lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_j * g_j(x) )</script><p>​    对可行域中的点$x$, $ \sum_{i=1}^{m} \lambda_i<em>h_i(x) + \sum_{j=1}^{n}\mu_j </em> g_j(x) \le0$，故：</p><script type="math/tex; mode=display">\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \le L(x, \lambda, \mu) \le f(x)</script><p>​    因此如果原问题的最优值$p^*$，对任意$\mu &gt;0, \lambda$满足以下条件:</p><script type="math/tex; mode=display">\Gamma(\lambda, \mu) \le p^*</script><p>​    对偶问题给出了原问题最优值的下界，且该下界的值取决于$\lambda,\mu$的取值。此时考虑另外一个问题：最好的下界是什么？该问题表述为以下形式:</p><script type="math/tex; mode=display">\max_{\lambda, \mu} \Gamma(\lambda, \mu) \\s.t. \mu \ge 0</script><p>​    $\lambda, \mu$称之为对偶变量，且该问题为凸优化问题。此问题的最优解$d^<em> \le p^</em>$，小于等于原问题的最优解。当等号成立时，强对偶成立，对偶问题的上界等于原问题的下界。一般问题强对偶条件不成立，但是当原问题为凸优化问题时，该条件成立。此时将拉格朗日函数分别对原变量和对偶变量求导，令其导数为0，即可得到原变量和对偶变量的数值关系，对偶问题得到解决，原问题亦解决。</p><h4 id="5-附录"><a href="#5-附录" class="headerlink" title="5. 附录"></a>5. 附录</h4><h5 id="5-1-命题一"><a href="#5-1-命题一" class="headerlink" title="5.1 命题一"></a>5.1 命题一</h5><p>​    曲面$g(x)=0$表示$g(x)$的等高线，在点$(x, y)$切线的斜率为$\frac{dy}{dx}$，法线的斜率：</p><script type="math/tex; mode=display">-\frac{1}{\frac{dy}{dx}}=-\frac{1}{-\frac{fx}{fy}}=\frac{fy}{fx}</script><p>​    梯度$\nabla  g(x)=[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial x}]^T$，其方向为$\frac{fy}{fx}$。故梯度和曲面正交。</p><h5 id="5-2-命题二"><a href="#5-2-命题二" class="headerlink" title="5.2 命题二"></a>5.2 命题二</h5><p>​    反证：若$\nabla f(x)$与约束曲面不正交，则继续验证梯度方向在约束曲面上移动，可使$f(x)$变小。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学优化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 优化 </tag>
+            
+            <tag> 拉格朗日 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>1.拉格朗日乘子法</title>
+      <link href="/2019/06/16/1-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/"/>
+      <url>/2019/06/16/1-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>　</p><h4 id="1-等式约束问题"><a href="#1-等式约束问题" class="headerlink" title="1. 等式约束问题"></a>1. 等式约束问题</h4><p>​    对以下约束问题：</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. g(x) = 0</script><p>​    从几何角度理解，可以转化为在$d-1$维的曲面上，寻找$f(x)$的最小值。则以下两个命题成立：</p><p>命题一：对曲面上的任意点$x$，该点的梯度$\nabla g(x)$正交于约束曲面；</p><p>命题二：在最优点$x^<em>$处，$f(x)$在该点的梯度$\nabla f(x^</em>)$ 正交与约束曲面；</p><p>​    由以上两个命题可得，最优点出两个梯度共线，即：$\nabla f(x^<em>) + \lambda\nabla g(x^</em>)=0  $。根据此式可以定义拉格朗日函数：</p><script type="math/tex; mode=display">L(x, \lambda)=f(x) + \lambda*g(x)</script><p>对$x,\lambda$求偏导，可得：</p><script type="math/tex; mode=display">\frac{\partial L}{\partial x}=\nabla f(x) + \lambda\nabla g(x)\\\frac{\partial L}{\partial \lambda} = g(x)</script><p>令$\frac{\partial L}{\partial x}=0, \frac{\partial L}{\partial \lambda}$=0，可得到$(1),(2)$取最值的点。</p><h4 id="2-不等式约束问题"><a href="#2-不等式约束问题" class="headerlink" title="2. 不等式约束问题"></a>2. 不等式约束问题</h4><p>​    对问题</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. g(x) \le 0</script><p>​    最优点\驻点的情况分为以下两种“</p><p>​    (1) 驻点位于$g(x)&lt;0$的区域内，该情况下约束不起作用，$f(x)$的驻点\最优点满足$\nabla f(x)=0$，可得在(2)中$\lambda = 0$;</p><p>​    (2)驻点位于$g(x)=0$，即位于边界上，$g(x)$=0</p><p>​    根据以上两点，可以得到最优解满足的条件(KKT条件):</p><p>​    (1) $g(x) \le0$</p><p>​    (2)$\lambda * g(x) = 0$</p><p>​    (3)$\lambda \ge 0$</p><h4 id="3-扩展至多约束"><a href="#3-扩展至多约束" class="headerlink" title="3. 扩展至多约束"></a>3. 扩展至多约束</h4><p>​    问题：</p><script type="math/tex; mode=display">\min_{x\in R^d} f(x) \\s.t. h_i(x) = 0 , i = 1...m\\g_j(x) \le 0, j = 1...n</script><p>​    引入拉格朗日乘子 $\lambda=[\lambda_1…\lambda_m]$和$\mu=[\mu_1…\mu_n]$，拉格朗日函数为：</p><script type="math/tex; mode=display">L(x,\lambda,\mu)=f(x) + \sum_{i=1}^{m}\lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_i*g_i(x)</script><p>​    KKT条件为:</p><script type="math/tex; mode=display">g_i(x) \le 0 \\\mu_j \ge 0 \\u_j * g_j(x) = 0</script><p>​    </p><h4 id="4-对偶问题"><a href="#4-对偶问题" class="headerlink" title="4. 对偶问题"></a>4. 对偶问题</h4><p>优化问题可以从两个角度观察，主问题和对偶问题。对于原优化问题，其拉格朗日对偶问题$\Gamma :R^m * R^n  \rightarrow R$定义为：</p><script type="math/tex; mode=display">\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \\= \inf_{x in D} (f(x) + \sum_{i=1}^{m} \lambda_i*h_i(x) + \sum_{j=1}^{n}\mu_j * g_j(x) )</script><p>​    对可行域中的点$x$, $ \sum_{i=1}^{m} \lambda_i<em>h_i(x) + \sum_{j=1}^{n}\mu_j </em> g_j(x) \le0$，故：</p><script type="math/tex; mode=display">\Gamma(\lambda,\mu)=\inf_{x \in D} L(x, \lambda, \mu) \le L(x, \lambda, \mu) \le f(x)</script><p>​    因此如果原问题的最优值$p^*$，对任意$\mu &gt;0, \lambda$满足以下条件:</p><script type="math/tex; mode=display">\Gamma(\lambda, \mu) \le p^*</script><p>​    对偶问题给出了原问题最优值的下界，且该下界的值取决于$\lambda,\mu$的取值。此时考虑另外一个问题：最好的下界是什么？该问题表述为以下形式:</p><script type="math/tex; mode=display">\max_{\lambda, \mu} \Gamma(\lambda, \mu) \\s.t. \mu \ge 0</script><p>​    $\lambda, \mu$称之为对偶变量，且该问题为凸优化问题。此问题的最优解$d^<em> \le p^</em>$，小于等于原问题的最优解。当等号成立时，强对偶成立，对偶问题的上界等于原问题的下界。一般问题强对偶条件不成立，但是当原问题为凸优化问题时，该条件成立。此时将拉格朗日函数分别对原变量和对偶变量求导，令其导数为0，即可得到原变量和对偶变量的数值关系，对偶问题得到解决，原问题亦解决。</p><h4 id="5-附录"><a href="#5-附录" class="headerlink" title="5. 附录"></a>5. 附录</h4><h5 id="5-1-命题一"><a href="#5-1-命题一" class="headerlink" title="5.1 命题一"></a>5.1 命题一</h5><p>​    曲面$g(x)=0$表示$g(x)$的等高线，在点$(x, y)$切线的斜率为$\frac{dy}{dx}$，法线的斜率：</p><script type="math/tex; mode=display">-\frac{1}{\frac{dy}{dx}}=-\frac{1}{-\frac{fx}{fy}}=\frac{fy}{fx}</script><p>​    梯度$\nabla  g(x)=[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial x}]^T$，其方向为$\frac{fy}{fx}$。故梯度和曲面正交。</p><h5 id="5-2-命题二"><a href="#5-2-命题二" class="headerlink" title="5.2 命题二"></a>5.2 命题二</h5><p>​    反证：若$\nabla f(x)$与约束曲面不正交，则继续验证梯度方向在约束曲面上移动，可使$f(x)$变小。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 信号处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 优化 </tag>
+            
+            <tag> 拉格朗日 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>0.傅里叶分析-背景</title>
       <link href="/2019/06/16/0-%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90-%E8%83%8C%E6%99%AF/"/>
       <url>/2019/06/16/0-%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90-%E8%83%8C%E6%99%AF/</url>
@@ -33,7 +114,7 @@
       <link href="/2019/06/16/1-%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
       <url>/2019/06/16/1-%E5%82%85%E9%87%8C%E5%8F%B6%E5%88%86%E6%9E%90-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
       
-        <content type="html"><![CDATA[<p>　　该部分主要介绍诸如正余弦、简谐振动等基础知识和概念。</p><p>　　在开始之前，说先要解答一个问题：函数有多种展开形式，为何要是用三角级数或者指数级数？函数展开的目的是更加简单地分析处理问题。在微积分里面，$\sin{x}$、$\cos{x}$的导数很有意思：</p><script type="math/tex; mode=display">\sin'{x}=\cos{x} ,\\cos'{x} = -\sin{x},  \(-\sin{x})'=-\cos{x}, \(-\cos{x})'=\sin{x}</script><p>​    $\sin{x}, \cos{x}$无穷阶可导。使用欧拉公式$e^{i\theta}=\cos{\theta} + i\sin{\theta}$，把三角级数转换成指数级数，而$e^x$的导数是其自身。两种函数的性质在计算微积分时具有得天独厚的优势。</p><ul><li><p>正余弦与简谐振动</p><p>简谐运动是一种周期性机械运动，函数表达式为：</p><script type="math/tex; mode=display">y=C + A\sin{\omega x+ \phi}</script><p>在其振动轴为X轴时，C表示在Y轴上的整体偏移量。其他参数解释如下：</p><p>　　A：振幅,</p><p>　　$T=\frac{2\pi}{\omega}$：周期</p><p>　　$f=\frac{1}{T}=\frac{\omega}{w\pi}$： 频率，单位HZ</p><p>　　$\omega$： 角频率，单位弧度/秒</p><p>　　$\phi$:初相，x=0时的相位，$\omega x+\phi$相位</p></li></ul><ul><li><p>周期函数</p><p>对于函数$f(x)​$，如果存在一个非零常熟T，在其定义域内满足$f(x) = f(x+T)​$，该函数成为周期函数。若T是正数，T称为函数$f(x)​$的最小正周期，$nT​$也是函数的周期.</p></li><li><p>函数周期性判定定理</p><p>若$f(x),g(x)​$都是周期函数，周期分别是$S, T​$，如果$\frac{S}{T}​$是有理数，那么函数$z(x)=f(x)+g(x)​$也是周期函数，周期为S和T的最小公倍数，S和T的公倍数均为$z(x)​$的周期。</p></li><li><p>谐波</p><p>谐波的数据表达式为：$f(x)=\frac{A_0}{2}+\sum_{n=1}^{\infty}{A_n\sin{(n\omega x+\phi_n)}}$。常数项$\frac{A_0}{2}$成为直流分量。n=1的成分称为基波分量，其频率称为基波频率，与$f(x)$的频率相同（f(x)的周期是所有分量的最小公倍数）。其他成分称为n次谐波。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>　　该部分主要介绍诸如正余弦、简谐振动等基础知识和概念。</p><p>　　在开始之前，说先要解答一个问题：函数有多种展开形式，为何要是用三角级数或者指数级数？函数展开的目的是更加简单地分析处理问题。在微积分里面，$\sin{x}$、$\cos{x}$的导数很有意思：</p><script type="math/tex; mode=display">\sin'{x}=\cos{x} ,\\cos'{x} = -\sin{x},  \(-\sin{x})'=-\cos{x}, \(-\cos{x})'=\sin{x}</script><p>​    $\sin{x}, \cos{x}$无穷阶可导。使用欧拉公式$e^{i\theta}=\cos{\theta} + i\sin{\theta}$，把三角级数转换成指数级数，而$e^x$的导数是其自身。两种函数的性质在计算微积分时具有得天独厚的优势。</p><ul><li><p>正余弦与简谐振动</p><p>简谐运动是一种周期性机械运动，函数表达式为：</p><script type="math/tex; mode=display">y=C + A\sin{\omega x+ \phi}</script><p>在其振动轴为X轴时，C表示在Y轴上的整体偏移量。其他参数解释如下：</p><p>　　A：振幅,</p><p>　　$T=\frac{2\pi}{\omega}$：周期</p><p>　　$f=\frac{1}{T}=\frac{\omega}{2\pi}$： 频率，单位HZ</p><p>　　$\omega$： 角频率，单位弧度/秒</p><p>　　$\phi$:初相，x=0时的相位，$\omega x+\phi$相位</p></li></ul><ul><li><p>周期函数</p><p>对于函数$f(x)​$，如果存在一个非零常熟T，在其定义域内满足$f(x) = f(x+T)​$，该函数成为周期函数。若T是正数，T称为函数$f(x)​$的最小正周期，$nT​$也是函数的周期.</p></li><li><p>函数周期性判定定理</p><p>若$f(x),g(x)​$都是周期函数，周期分别是$S, T​$，如果$\frac{S}{T}​$是有理数，那么函数$z(x)=f(x)+g(x)​$也是周期函数，周期为S和T的最小公倍数，S和T的公倍数均为$z(x)​$的周期。</p></li><li><p>谐波</p><p>谐波的数据表达式为：$f(x)=\frac{A_0}{2}+\sum_{n=1}^{\infty}{A_n\sin{(n\omega x+\phi_n)}}$。常数项$\frac{A_0}{2}$成为直流分量。n=1的成分称为基波分量，其频率称为基波频率，与$f(x)$的频率相同（f(x)的周期是所有分量的最小公倍数）。其他成分称为n次谐波。</p></li></ul>]]></content>
       
       
       <categories>
