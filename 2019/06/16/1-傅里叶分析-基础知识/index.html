@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="ml&amp;phm">
 <meta property="og:description" content="该部分主要介绍诸如正余弦、简谐振动等基础知识和概念。 　　在开始之前，说先要解答一个问题：函数有多种展开形式，为何要是用三角级数或者指数级数？函数展开的目的是更加简单地分析处理问题。在微积分里面，$\sin{x}$、$\cos{x}$的导数很有意思：  \sin&apos;{x}=\cos{x} ,\ \cos&apos;{x} = -\sin{x},  \ (-\sin{x})&apos;=-\cos{x}, \ (-\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-16T13:26:06.401Z">
+<meta property="og:updated_time" content="2019-06-16T14:16:03.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1.傅里叶分析-基础知识">
 <meta name="twitter:description" content="该部分主要介绍诸如正余弦、简谐振动等基础知识和概念。 　　在开始之前，说先要解答一个问题：函数有多种展开形式，为何要是用三角级数或者指数级数？函数展开的目的是更加简单地分析处理问题。在微积分里面，$\sin{x}$、$\cos{x}$的导数很有意思：  \sin&apos;{x}=\cos{x} ,\ \cos&apos;{x} = -\sin{x},  \ (-\sin{x})&apos;=-\cos{x}, \ (-\">
@@ -385,13 +385,23 @@
 <li><p>正余弦与简谐振动</p>
 <p>简谐运动是一种周期性机械运动，函数表达式为：</p>
 <script type="math/tex; mode=display">
-y=C + A\sin{\omega x+ \phi}</script><p>在其振动轴为X轴时，C表示在Y轴上的整体偏移量。</p>
+y=C + A\sin{\omega x+ \phi}</script><p>在其振动轴为X轴时，C表示在Y轴上的整体偏移量。其他参数解释如下：</p>
+<p>　　A：振幅,</p>
+<p>　　$T=\frac{2\pi}{\omega}$：周期</p>
+<p>　　$f=\frac{1}{T}=\frac{\omega}{w\pi}$： 频率，单位HZ</p>
+<p>　　$\omega$： 角频率，单位弧度/秒</p>
+<p>　　$\phi$:初相，x=0时的相位，$\omega x+\phi$相位</p>
 </li>
+</ul>
+<ul>
 <li><p>周期函数</p>
 <p>对于函数$f(x)​$，如果存在一个非零常熟T，在其定义域内满足$f(x) = f(x+T)​$，该函数成为周期函数。若T是正数，T称为函数$f(x)​$的最小正周期，$nT​$也是函数的周期.</p>
 </li>
 <li><p>函数周期性判定定理</p>
-<p>若$f(x),g(x)$都是周期函数，周期分别是$S, T$，如果$\frac{S}{T}$是有理数，那么函数$z(x)=f(x)+g(x)$也是周期函数，周期为S和T的最小公倍数</p>
+<p>若$f(x),g(x)​$都是周期函数，周期分别是$S, T​$，如果$\frac{S}{T}​$是有理数，那么函数$z(x)=f(x)+g(x)​$也是周期函数，周期为S和T的最小公倍数，S和T的公倍数均为$z(x)​$的周期。</p>
+</li>
+<li><p>谐波</p>
+<p>谐波的数据表达式为：$f(x)=\frac{A_0}{2}+\sum_{n=1}^{\infty}{A_n\sin{(n\omega x+\phi_n)}}$。常数项$\frac{A_0}{2}$成为直流分量。n=1的成分称为基波分量，其频率称为基波频率，与$f(x)$的频率相同（f(x)的周期是所有分量的最小公倍数）。其他成分称为n次谐波。</p>
 </li>
 </ul>
 
